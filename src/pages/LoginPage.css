@@ -1,0 +1,80 @@
+/* src/pages/LoginPage.css */
+
+body {
+    background-color: #f7f9fc;
+    /* Light gray background color */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-container {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.toggle-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.toggle-button {
+    background: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.toggle-button.active {
+    background: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.google-login {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,96 @@
+/* src/pages/AboutPage.scss */
+
+.mission {
+    position: relative;
+    background: url("../assets/flight2.jpg") no-repeat center center;
+    background-size: cover;
+    padding: 40px 0;
+    border-radius: 8px;
+}
+
+.mission::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Black overlay */
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.mission .card {
+    background-color: transparent;
+    /* Transparent background */
+    color: white;
+    /* White text */
+    border: none;
+    /* No card border */
+    z-index: 2;
+    /* Keep above the overlay */
+}
+
+.mission .card .card-title,
+.mission .card .card-text {
+    color: white;
+    /* Ensure text remains white */
+}
+
+.mission .card:hover {
+    transform: none;
+    /* No hover zoom effect for mission card */
+    box-shadow: none;
+    /* No shadow effect for mission card */
+}
+
+/* Styling for the solution cards */
+.card {
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    // transition: transform 0.3s ease, box-shadow 0.3s ease;s
+    height: 100%;
+    /* Ensure equal height */
+}
+
+
+h1,
+h2 {
+    font-family: 'Arial', sans-serif;
+}
+
+.text-primary {
+    color: #007bff;
+    /* Primary color */
+}
+
+.text-secondary {
+    color: #6c757d;
+    /* Secondary color */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+}
+
+.list-unstyled {
+    padding-left: 0;
+}
+
+.list-unstyled li {
+    margin-bottom: 0.5rem;
+}

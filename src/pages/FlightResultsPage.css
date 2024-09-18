@@ -1,0 +1,59 @@
+.flight-results-container {
+  padding: 20px;
+}
+
+.notify-button {
+
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  width: 13%;
+  flex-wrap: nowrap;
+  text-align: center;
+}
+
+.notify-button .icon {
+  margin-right: 8px;
+
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.book-button {
+  margin-top: 10px;
+  font-size: 0.875rem;
+
+
+}
+
+.dropdown-toggle {
+  font-size: 0.875rem;
+}
+
+.icon {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.flight-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flight-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.flight-card .card-text {
+  font-size: 0.875rem;
+  color: #495057;
+}
+
+.flight-list-item {
+  padding: 15px;
+  border-bottom: 1px solid #dee2e6;
+}

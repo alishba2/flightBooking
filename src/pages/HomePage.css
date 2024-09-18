@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+.home-body {
+  width: 100%;
+  height: 700px;
+  background: url("../assets/flight2.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: -50px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+.home-card {
+  opacity: 0.9;
+  /* Ensure there are no transitions or animations on the card */
+  transition: none;
+  /* Ensure there is no movement or shifting */
+  transform: none;
+  margin-top: 30px;
+}
+
+form {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input[type="date"] {
+  padding: 8px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 15px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+  }
+}

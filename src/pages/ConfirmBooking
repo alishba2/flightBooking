@@ -1,0 +1,49 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import './ConfirmBooking.css'; 
+
+function ConfirmBooking() {
+  const location = useLocation();
+  const { selectedFlight } = location.state || {};  // Get the flight data passed from the confirmation page
+
+  // Fetch user data from localStorage (or other methods)
+  const user = JSON.parse(localStorage.getItem('user')) || {};
+
+  if (!selectedFlight) {
+    return <div>No booking details available.</div>;
+  }
+
+  return (
+    <div className="confirm-booking-container">
+      <h1>Booking Confirmation</h1>
+
+      {/* Displaying User Information */}
+      <div className="user-info">
+        <p><strong>Booked by:</strong> {user.fullName}</p>
+        <p><strong>Email:</strong> {user.email}</p>
+      </div>
+
+      {/* Displaying flight details */}
+      <div className="booking-details">
+        <h2>{selectedFlight.flight_name} ({selectedFlight.flight_code})</h2>
+
+        <p><strong>From:</strong> {selectedFlight.departureAirport.label} ({selectedFlight.departureAirport.code})</p>
+        <p><strong>To:</strong> {selectedFlight.arrivalAirport.label} ({selectedFlight.arrivalAirport.code})</p>
+
+        {/* Displaying flight dates and times */}
+        <p><strong>Departure Date & Time:</strong> {new Date(selectedFlight.departureAirport.time).toLocaleString()}</p>
+        <p><strong>Arrival Date & Time:</strong> {new Date(selectedFlight.arrivalAirport.time).toLocaleString()}</p>
+
+        <p><strong>Price:</strong> {selectedFlight.totals.total.toFixed(2)} {selectedFlight.currency}</p>
+
+        {/* Baggage Information */}
+        <p><strong>Cabin Baggage:</strong> {selectedFlight.baggage?.cabin?.text || 'Not Included'}</p>
+        <p><strong>Check-in Baggage:</strong> {selectedFlight.baggage?.checkIn?.text || 'Not Included'}</p>
+      </div>
+
+      <button className="confirm-button">Confirm Booking</button>
+    </div>
+  );
+}
+
+export default ConfirmBooking;
