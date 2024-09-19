@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import ProcessingPage from './pages/ProcessingPage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
+import Footer from "./components/footer";
 import UpdatesPage from './pages/UpdatesPage';
 import ManageAccountPage from './pages/ManageAccountPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
@@ -95,6 +96,8 @@ function App() {
               }
             />
           </Routes>
+
+          <Footer />
 
         </AuthProvider>
 

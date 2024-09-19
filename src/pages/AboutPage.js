@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { FaRocket, FaCogs, FaChartLine } from 'react-icons/fa'; // Example icons
 import "./AboutPage.scss";
 
 function AboutPage() {
@@ -27,7 +28,44 @@ function AboutPage() {
         </Col>
       </Row>
 
+      {/* Benefits Section */}
+      <Row className="mb-5 benefits">
+        <Col md={4}>
+          <Card className="benefit-card">
+            <Card.Body className="text-center">
+              <FaRocket size={40} className="benefit-icon" />
+              <Card.Title>Faster Operations</Card.Title>
+              <Card.Text>
+                Streamline flight operations with advanced tools designed to increase speed and reduce inefficiencies.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
 
+        <Col md={4}>
+          <Card className="benefit-card">
+            <Card.Body className="text-center">
+              <FaCogs size={40} className="benefit-icon" />
+              <Card.Title>Automated Workflows</Card.Title>
+              <Card.Text>
+                Automate repetitive tasks and focus on the important aspects of aerospace engineering with ease.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={4}>
+          <Card className="benefit-card">
+            <Card.Body className="text-center">
+              <FaChartLine size={40} className="benefit-icon" />
+              <Card.Title>Data-Driven Insights</Card.Title>
+              <Card.Text>
+                Make informed decisions with real-time data and analytics at your fingertips for better outcomes.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 }

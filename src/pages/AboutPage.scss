@@ -1,5 +1,3 @@
-/* src/pages/AboutPage.scss */
-
 .mission {
     position: relative;
     background: url("../assets/flight2.jpg") no-repeat center center;
@@ -23,38 +21,57 @@
 
 .mission .card {
     background-color: transparent;
-    /* Transparent background */
     color: white;
-    /* White text */
     border: none;
-    /* No card border */
     z-index: 2;
-    /* Keep above the overlay */
 }
 
 .mission .card .card-title,
 .mission .card .card-text {
     color: white;
-    /* Ensure text remains white */
 }
 
-.mission .card:hover {
-    transform: none;
-    /* No hover zoom effect for mission card */
-    box-shadow: none;
-    /* No shadow effect for mission card */
+.benefits {
+    margin-top: 6rem;
+
+    .benefit-card {
+
+        border: none;
+        background-color: #f9f9f9;
+        padding: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        h5 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
 }
 
-/* Styling for the solution cards */
+/* General styles */
 .card {
     border-radius: 8px;
     background-color: white;
     color: #333;
-    // transition: transform 0.3s ease, box-shadow 0.3s ease;s
     height: 100%;
-    /* Ensure equal height */
 }
-
 
 h1,
 h2 {
@@ -63,12 +80,10 @@ h2 {
 
 .text-primary {
     color: #007bff;
-    /* Primary color */
 }
 
 .text-secondary {
     color: #6c757d;
-    /* Secondary color */
 }
 
 .text-center {
@@ -85,12 +100,4 @@ h2 {
 
 .lead {
     font-size: 1.25rem;
-}
-
-.list-unstyled {
-    padding-left: 0;
-}
-
-.list-unstyled li {
-    margin-bottom: 0.5rem;
 }

@@ -1,85 +1,228 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
   margin: 0;
   padding: 0;
+  background-color: #f7f7f7;
+  color: white;
 }
 
 .home-body {
+  position: relative;
   width: 100%;
-  height: 700px;
-  background: url("../assets/flight2.jpg");
-  background-position: center;
-  background-size: cover;
-  margin-top: -50px;
+  height: 100vh;
+  background: url("../assets/flight2.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Overlay effect */
+}
+
+.content-container {
+  position: relative;
+  /* max-width: 1; */
+  width: 80%;
+  height: 460px;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Semi-transparent form */
+  padding: 30px;
+  border-radius: 15px;
   text-align: center;
-  margin-top: 20px;
-  color: #333;
+  z-index: 1;
 }
 
-.home-card {
-  opacity: 0.9;
-  /* Ensure there are no transitions or animations on the card */
-  transition: none;
-  /* Ensure there is no movement or shifting */
-  transform: none;
-  margin-top: 30px;
+h2 {
+  color: #38598b;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #38598b;
+  font-size: 1.2rem;
 }
 
 form {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-label {
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
   color: #333;
+  margin-bottom: 5px;
 }
 
-input,
-select,
-button {
+/* Adjust form layout */
+.form-group-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.form-group-row .form-group {
+  width: 48%;
+  /* Each field takes up about half the width */
+}
+
+@media (max-width: 768px) {
+  .form-group-row {
+    flex-direction: column;
+  }
+
+  .form-group-row .form-group {
+    width: 100%;
+    /* Full width on smaller screens */
+  }
+}
+
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   font-size: 16px;
 }
 
-input[type="date"] {
-  padding: 8px;
-}
-
 button {
-  background-color: #007BFF;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
   color: white;
   border: none;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #218838;
 }
 
-@media (max-width: 600px) {
-  form {
-    padding: 15px;
+.error-message {
+  color: red;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 20px;
   }
 
-  input,
-  select,
-  button {
-    font-size: 14px;
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  margin-top: 6em;
+  text-align: center;
+  margin: 6em 3em 0rem 3em;
+}
+
+.why-choose-us h3 {
+  font-size: 2rem;
+  color: #38598b;
+
+  /* margin-bottom: 5px; */
+}
+
+.benefits {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 20px; */
+}
+
+.benefit {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.benefit .icon {
+  font-size: 3rem;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.benefit h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.benefit p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Reviews Section */
+.reviews {
+  margin-top: 50px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+.reviews h3 {
+  font-size: 1.8rem;
+  color: #38598b;
+  margin-bottom: 20px;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review p {
+  margin: 5px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .benefits {
+    flex-direction: column;
+  }
+
+  .benefit {
+    margin-bottom: 20px;
   }
 }

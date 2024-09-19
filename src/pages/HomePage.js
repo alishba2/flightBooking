@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Container, Row, Col, Form, Button, Card, Spinner, Alert } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './HomePage.css'; // Assuming you have custom styles
+import './HomePage.css'; // Custom styles
+import { FaPlane, FaShieldAlt, FaCalendarCheck } from 'react-icons/fa'; // Importing react-icons
 
 function HomePage() {
   const [from, setFrom] = useState('');
@@ -50,117 +49,147 @@ function HomePage() {
       navigate('/results', { state: { flightData: response.data } });
     } catch (error) {
       console.error('Failed to fetch flight data:', error);
-      setError('Failed to fetch flight data. Please try again.'); // Set error message
+      setError('Failed to fetch flight data. Please try again.');
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
   return (
-    <div className='home-body'>
-      <Container className="homepage-container mt-5">
-        <Row className="justify-content-center">
-          <Col className='column' md={8}>
-            <Card className="shadow p-4 home-card">
-              <h1 className="text-center mb-4">Search Flights</h1>
-              {error && <Alert variant="danger">{error}</Alert>} {/* Display error message */}
-              <Form onSubmit={handleSubmit}>
-                <Row>
-                  <Col md={6} className="mb-3">
-                    <Form.Group controlId="formFrom">
-                      <Form.Label>From</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={from}
-                        onChange={(e) => setFrom(e.target.value)}
-                        placeholder="From (e.g. ISB)"
-                        required
-                      />
-                    </Form.Group>
-                  </Col>
 
-                  <Col md={6} className="mb-3">
-                    <Form.Group controlId="formTo">
-                      <Form.Label>To</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={to}
-                        onChange={(e) => setTo(e.target.value)}
-                        placeholder="To (e.g. LHR)"
-                        required
-                      />
-                    </Form.Group>
-                  </Col>
-                </Row>
+    <>
 
-                <Row>
-                  <Col md={6} className="mb-3">
-                    <Form.Group controlId="formDate">
-                      <Form.Label>Date</Form.Label>
-                      <Form.Control
-                        type="date"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                        required
-                      />
-                    </Form.Group>
-                  </Col>
 
-                  <Col md={6} className="mb-3">
-                    <Form.Group controlId="formAdult">
-                      <Form.Label>Adults</Form.Label>
-                      <Form.Control
-                        type="number"
-                        value={adult}
-                        onChange={(e) => setAdult(e.target.value)}
-                        min="1"
-                        required
-                      />
-                    </Form.Group>
-                  </Col>
-                </Row>
+      <div className='home-body'>
+        <div className="overlay"></div>
+        <div className="content-container">
+          <h2>Welcome to AeroOptimize</h2>
+          <p>Search for your flights now!</p>
+          {error && <div className="error-message">{error}</div>}
+          <form onSubmit={handleSubmit} className="search-form">
+            <div className="form-group-row">
+              <div className="form-group">
+                {/* <label>From</label> */}
+                <input
+                  type="text"
+                  value={from}
+                  onChange={(e) => setFrom(e.target.value)}
+                  placeholder="From (e.g. ISB)"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                {/* <label>To</label> */}
+                <input
+                  type="text"
+                  value={to}
+                  onChange={(e) => setTo(e.target.value)}
+                  placeholder="To (e.g. LHR)"
+                  required
+                />
+              </div>
+            </div>
 
-                <Row>
-                  <Col md={6} className="mb-3">
-                    <Form.Group controlId="formType">
-                      <Form.Label>Class</Form.Label>
-                      <Form.Control
-                        as="select"
-                        value={type}
-                        onChange={(e) => setType(e.target.value)}
-                      >
-                        <option value="Economy">Economy</option>
-                        <option value="Business">Business</option>
-                      </Form.Control>
-                    </Form.Group>
-                  </Col>
+            <div className="form-group-row">
+              <div className="form-group">
+                {/* <label>Date</label> */}
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                {/* <label>Adults</label> */}
+                <input
+                  type="number"
+                  value={adult}
+                  onChange={(e) => setAdult(e.target.value)}
+                  min="1"
+                  required
+                />
+              </div>
+            </div>
 
-                  <Col md={6} className="mb-3">
-                    <Form.Group controlId="formCurrency">
-                      <Form.Label>Currency</Form.Label>
-                      <Form.Control
-                        as="select"
-                        value={currency}
-                        onChange={(e) => setCurrency(e.target.value)}
-                      >
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                      </Form.Control>
-                    </Form.Group>
-                  </Col>
-                </Row>
+            <div className="form-group-row">
+              <div className="form-group">
+                {/* <label>Class</label> */}
+                <select value={type} onChange={(e) => setType(e.target.value)}>
+                  <option value="Economy">Economy</option>
+                  <option value="Business">Business</option>
+                </select>
+              </div>
+              <div className="form-group">
+                {/* <label>Currency</label> */}
+                <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
+            </div>
 
-                <div className="text-center">
-                  <Button style={{ background: '#28a745', border: '1px solid #28a745' }} variant="primary" type="submit" className="mt-3" disabled={loading}>
-                    {loading ? <Spinner animation="border" /> : 'Search Flights'}
-                  </Button>
+            <button type="submit" disabled={loading}>
+              {loading ? (
+                <div className="d-flex justify-content-center align-items-center">
+                  <div className="spinner-border text-light" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
                 </div>
-              </Form>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+              ) : (
+                <>
+                  Search Flights
+                </>
+              )}
+            </button>
+
+          </form>
+
+        </div>
+
+
+      </div>
+      <section className="why-choose-us">
+        <h3>Why Choose Us</h3>
+        <div className="benefits">
+          <div className="benefit">
+            <FaPlane className="icon" />
+            <h4>Best Price Guarantee</h4>
+            <p>We ensure you get the best deals on your flight bookings.</p>
+          </div>
+          <div className="benefit">
+            <FaShieldAlt className="icon" />
+
+            <h4>Safe and Secure</h4>
+            <p>Your information is protected with the highest security standards.</p>
+          </div>
+          <div className="benefit">
+            <FaCalendarCheck className="icon" />
+            <h4>Flexible Bookings</h4>
+            <p>Make changes to your flight bookings easily and hassle-free.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="reviews">
+        <h3>What Our Customers Say</h3>
+        <div className="review-list">
+          <div className="review">
+            <p>"AeroOptimize made booking my flight so easy! Highly recommend."</p>
+            <p>- Sarah W.</p>
+          </div>
+          <div className="review">
+            <p>"The best customer service I've experienced in a long time!"</p>
+            <p>- John D.</p>
+          </div>
+          <div className="review">
+            <p>"I found the best flight prices, and it was so quick."</p>
+            <p>- Emma R.</p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
